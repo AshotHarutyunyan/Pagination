@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import PaginationVariant1 from './PaginationVariants/PaginationVariant1'
-import PaginationVariant2 from './PaginationVariants/PaginationVariant2';
-import PaginationVariant3 from './PaginationVariants/PaginationVariant3';
+// import PaginationVariant1 from './PaginationVariants/PaginationVariant1'
+// import PaginationVariant2 from './PaginationVariants/PaginationVariant2';
+// import PaginationVariant3 from './PaginationVariants/PaginationVariant3';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import PaginationLogic from './PaginationLogic';
 
 
 const PaginationContainer = (props) => {
@@ -22,13 +23,9 @@ const PaginationContainer = (props) => {
         pages.push(i);
     }
 
-    if (pagesCount <= 7) {
-        return <PaginationVariant1 currentPage={Number(currentPage)} setcurrentPage={setcurrentPage} pages={pages} />
-    } else if (pagesCount > 7 && pagesCount <= 9) {
-        return <PaginationVariant2 currentPage={Number(currentPage)} setcurrentPage={setcurrentPage} pages={pages} />
-    } else if (pagesCount >= 10) {
-        return <PaginationVariant3 currentPage={Number(currentPage)} setcurrentPage={setcurrentPage} pages={pages} />
-    }
+    if (pagesCount > 0) {
+        return <PaginationLogic currentPage={Number(currentPage)} setcurrentPage={setcurrentPage} pages={pages} pagesCount={pagesCount}/>
+    } 
     return (
         <div>Sorry but your items is not paginatable</div>
     )

@@ -5,7 +5,7 @@ import PaginationContainer from './components/Pagination/PaginationContainer';
 
 const App = () => (
   <Router>
-    <Route path="/:pageId?" render={ () => < PaginationContainer allItemsCount={150} pageItemsCount={10}/> }/>
+    <Route path="/:pageId?" render={ () => < PaginationContainer allItemsCount={200} pageItemsCount={10}/> }/>
   </Router>
 );
 export default App;
